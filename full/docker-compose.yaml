@@ -1,0 +1,17 @@
+php:
+    image: php:7.0-cli
+    ports:
+        - "8080"
+    volumes:
+        - .:/var/www/html
+        - /tmp:/tmp
+    command: php -S 0.0.0.0:8080 -t /var/www/html
+
+monolog:
+  image: php:7.0-cli
+  ports:
+      - "8888:8888"
+  volumes:
+      - ../monolog-viewer:/var/www/html
+      - /tmp:/tmp
+  command: php -S 0.0.0.0:8888 -t /var/www/html
